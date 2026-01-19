@@ -1,6 +1,6 @@
 package packages;
 
-public class main {
+public class driver {
 
     public static void main(String[] args) {
 
