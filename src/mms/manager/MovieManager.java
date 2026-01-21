@@ -1,4 +1,4 @@
-package packages;
+package src.mms.manager;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -8,6 +8,8 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import src.mms.problemdomain.Movie;
+
 public class MovieManager {
     // Creates a list for all the movies aswell as a scanner.
     ArrayList<Movie> movies = new ArrayList<>();
@@ -16,7 +18,7 @@ public class MovieManager {
 
     // Loads the movies.txt file and adds each movie in the file to a list.
     public void loadMovieList() {
-        try (BufferedReader br = new BufferedReader(new FileReader("packages/res/movies.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("src/res/movies.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 //Splits the text recieved from the file into 3 parts and calls the constructor with those parts
