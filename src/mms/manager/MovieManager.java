@@ -92,35 +92,35 @@ public class MovieManager {
         
     }
 
-public void addMovie() {
-        // movie var
-        int duration;
-        String title;
-        int year;
- 
-        // get user input
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter duration: ");
-        duration = sc.nextInt();
-        sc.nextLine(); // input scanner to consume the extra \n
-                       // https://stackoverflow.com/questions/44288369/how-to-input-a-string-in-java-except-using-nextline-and-i-need-to-print-the-wh
- 
-        System.out.print("Enter movie title: ");
-        title = sc.nextLine(); // REMOVE no need to do nexLine again in a string, only ints etc.
- 
-        System.out.print("Enter year: ");
-        year = sc.nextInt();
-        sc.nextLine();
- 
-        // create new movie obj using user info
-        Movie movie = new Movie(duration, title, year);
-        // add movies to list
-        movies.add(movie);
- 
-        // add it to file
-        saveMovieListToFile();
-        System.out.println("Saving movies...\n" + "Added movie to the data file.");
-    }
+    public void addMovie() {
+            // movie var
+            int duration;
+            String title;
+            int year;
+    
+            // get user input
+            Scanner sc = new Scanner(System.in);
+            System.out.print("Enter duration: ");
+            duration = sc.nextInt();
+            sc.nextLine(); // input scanner to consume the extra \n
+                        // https://stackoverflow.com/questions/44288369/how-to-input-a-string-in-java-except-using-nextline-and-i-need-to-print-the-wh
+    
+            System.out.print("Enter movie title: ");
+            title = sc.nextLine(); // REMOVE no need to do nexLine again in a string, only ints etc.
+    
+            System.out.print("Enter year: ");
+            year = sc.nextInt();
+            sc.nextLine();
+    
+            // create new movie obj using user info
+            Movie movie = new Movie(duration, title, year);
+            // add movies to list
+            movies.add(movie);
+    
+            // add it to file
+            saveMovieListToFile();
+            System.out.println("Saving movies...\n" + "Added movie to the data file.");
+        }
 
 
 }
