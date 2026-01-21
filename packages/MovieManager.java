@@ -1,14 +1,18 @@
 package packages;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MovieManager {
-    // Creates a list for all the movies.
+    // Creates a list for all the movies aswell as a scanner.
     ArrayList<Movie> movies = new ArrayList<>();
+    Scanner scanner = new Scanner(System.in);
+
 
     // Loads the movies.txt file and adds each movie in the file to a list.
     public void loadMovieList() {
@@ -32,7 +36,6 @@ public class MovieManager {
 
     // Displays a menu for the user and returns the option that the user selected.
     public int displayMenu() {
-        Scanner scanner = new Scanner(System.in);
         int option;
         do{
             System.out.println("Movie Management System");
@@ -47,12 +50,47 @@ public class MovieManager {
                 System.out.println("Invalid Option");
             
                 
-        }while(option>=1||option<=4);
-        scanner.close();
+        }while(option < 1||option > 4);
         return option;
     }
 
+    //Takes in user input for year the iterates through arraylist with a for loop to find relevant matches
+    public void generateMovieListInYear(){
+        System.out.print("Enter in year: ");
+        int year = scanner.nextInt();
+        for(Movie film: movies)
+            if(year==film.getYear())
+                System.out.println(film.toString());
+    }
 
+    //Takes user input for number of movies and sets that as limit for the loop. 
+    // Then uses a random number generator derived from the soze of the list to generate an index for the array
+    public void generateRandomMovieList(){
+        System.out.print("Enter number of movies: ");
+        int num = scanner.nextInt();
+        for(int x=0;x<num;x++){
+            int rand = (int)(Math.random()*(movies.size()));
+            System.out.println(movies.get(rand).toString());
+        }
+
+
+    }
+
+    //Creates a refrence to the file and a writer to said file. Writes details of the film and cataches any expection that may be thrown
+    public void saveMovieListToFile(){
+        try {
+            File films = new File("packages/res/movies.txt");
+            PrintWriter pen = new PrintWriter(films);
+            for(Movie film:movies)
+                pen.println(film.getDuration()+","+film.getTitle()+","+film.getYear());
+            pen.close();
+        } catch (IOException e){
+            System.out.println("Error reading file.");
+        }
+        
+    }
+
+    public void addMovie(){}
 
 
 
