@@ -1,4 +1,4 @@
-package src.mms.manager;
+package sait.mms.manager;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -8,7 +8,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import src.mms.problemdomain.Movie;
+import sait.mms.problemdomain.Movie;
 
 public class MovieManager {
     // Creates a list for all the movies aswell as a scanner.

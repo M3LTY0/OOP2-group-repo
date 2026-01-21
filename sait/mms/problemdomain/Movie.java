@@ -1,4 +1,4 @@
-package src.mms.problemdomain;
+package sait.mms.problemdomain;
 
 public class Movie {
     // Creates the movie attributes.

@@ -1,8 +1,8 @@
 //Matthew, Jaeryn and Jerry - 20/1/26
 //Manages the movie class through methods
-package src.mms.application;
+package sait.mms.application;
 
-import src.mms.manager.MovieManager;
+import sait.mms.manager.MovieManager;
 
 public class Driver {
     public static void main(String[] args) {
