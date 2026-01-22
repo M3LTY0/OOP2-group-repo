@@ -49,7 +49,7 @@ public class MovieManager {
             System.out.print("Enter an option: ");
             option = scanner.nextInt();
             if(option<1||option>4)
-                System.out.println("Invalid Option");
+                System.out.println("Invalid Option!");
             
                 
         }while(option < 1||option > 4);
@@ -58,24 +58,31 @@ public class MovieManager {
 
     //Takes in user input for year the iterates through arraylist with a for loop to find relevant matches
     public void generateMovieListInYear(){
+        int duration=0;
         System.out.print("Enter in year: ");
         int year = scanner.nextInt();
-        for(Movie film: movies)
-            if(year==film.getYear())
+        for(Movie film: movies){
+            if(year==film.getYear()){
                 System.out.println(film.toString());
+                duration+=film.getDuration();
+            }
+        }
+        System.out.println("Total Duration: "+duration+" minutes");
+
     }
 
     //Takes user input for number of movies and sets that as limit for the loop. 
     // Then uses a random number generator derived from the soze of the list to generate an index for the array
     public void generateRandomMovieList(){
+        int duration=0;
         System.out.print("Enter number of movies: ");
         int num = scanner.nextInt();
         for(int x=0;x<num;x++){
             int rand = (int)(Math.random()*(movies.size()));
             System.out.println(movies.get(rand).toString());
+            duration+=movies.get(rand).getDuration();
         }
-
-
+        System.out.println("Total Duration: "+duration+" minutes");
     }
 
     //Creates a refrence to the file and a writer to said file. Writes details of the film and cataches any expection that may be thrown
