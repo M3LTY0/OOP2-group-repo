@@ -10,9 +10,23 @@ public class AppDriver {
         Manager.loadMovieList();
         int action = Manager.displayMenu();
 
-        if(action==1){Manager.addMovie();}
-        else if(action==2){Manager.generateMovieListInYear();}
-        else if(action==3){Manager.generateRandomMovieList();}
+
+        while (action != 4) {
+ 
+            if (action == 1) {
+                Manager.addMovie();
+            } 
+            
+            else if (action == 2) {
+                Manager.generateMovieListInYear();
+            } 
+            
+            else if (action == 3) {
+                Manager.generateRandomMovieList();
+            }
+
+            action = Manager.displayMenu();
+        }
 
 
 

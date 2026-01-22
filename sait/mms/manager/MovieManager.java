@@ -18,7 +18,7 @@ public class MovieManager {
 
     // Loads the movies.txt file and adds each movie in the file to a list.
     public void loadMovieList() {
-        try (BufferedReader br = new BufferedReader(new FileReader("src/res/movies.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("res/movies.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 //Splits the text recieved from the file into 3 parts and calls the constructor with those parts
@@ -40,7 +40,7 @@ public class MovieManager {
     public int displayMenu() {
         int option;
         do{
-            System.out.println("Movie Management System");
+            System.out.println("\nMovie Management System");
             System.out.println("1     Add New Movie and Save");
             System.out.println("2     Generate List of Movies Released in a Year");
             System.out.println("3     Generate List of Random Movies");
@@ -81,7 +81,7 @@ public class MovieManager {
     //Creates a refrence to the file and a writer to said file. Writes details of the film and cataches any expection that may be thrown
     public void saveMovieListToFile(){
         try {
-            File films = new File("packages/res/movies.txt");
+            File films = new File("res/movies.txt");
             PrintWriter pen = new PrintWriter(films);
             for(Movie film:movies)
                 pen.println(film.getDuration()+","+film.getTitle()+","+film.getYear());
@@ -92,7 +92,34 @@ public class MovieManager {
         
     }
 
-    public void addMovie(){}
+    public void addMovie() {
+            // movie var
+            int duration;
+            String title;
+            int year;
+    
+            // get user input
+            System.out.print("Enter duration: ");
+            duration = scanner.nextInt();
+            scanner.nextLine(); // input scanner to consume the extra \n
+                        // https://stackoverflow.com/questions/44288369/how-to-input-a-string-in-java-except-using-nextline-and-i-need-to-print-the-wh
+    
+            System.out.print("Enter movie title: ");
+            title = scanner.nextLine(); // REMOVE no need to do nexLine again in a string, only ints etc.
+    
+            System.out.print("Enter year: ");
+            year = scanner.nextInt();
+            scanner.nextLine();
+    
+            // create new movie obj using user info
+            Movie movie = new Movie(duration, title, year);
+            // add movies to list
+            movies.add(movie);
+    
+            // add it to file
+            saveMovieListToFile();
+            System.out.println("Saving movies...\n" + "Added movie to the data file.");
+        }
 
 
 
