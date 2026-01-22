@@ -40,7 +40,7 @@ public class MovieManager {
     public int displayMenu() {
         int option;
         do{
-            System.out.println("Movie Management System");
+            System.out.println("\nMovie Management System");
             System.out.println("1     Add New Movie and Save");
             System.out.println("2     Generate List of Movies Released in a Year");
             System.out.println("3     Generate List of Random Movies");
@@ -81,7 +81,7 @@ public class MovieManager {
     //Creates a refrence to the file and a writer to said file. Writes details of the film and cataches any expection that may be thrown
     public void saveMovieListToFile(){
         try {
-            File films = new File("packages/res/movies.txt");
+            File films = new File("src/res/movies.txt");
             PrintWriter pen = new PrintWriter(films);
             for(Movie film:movies)
                 pen.println(film.getDuration()+","+film.getTitle()+","+film.getYear());
